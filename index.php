@@ -1,21 +1,41 @@
-<?php 
-include 'koneksi/count.php';
-include 'koneksi/connection.php';
-  
-$conn = get_connection();
-?>
-
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                fontFamily: {
+                    rubik: ["Rubik"],
+                    poppins: ["Poppins"]
+                }
+            }
+        }
+    }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
     <?php include './components/link.php' ?>
     <title>ICE SPORTS</title>
 </head>
 
 <body>
+    <?php 
+
+    include 'koneksi/initdb.php';
+
+    initDB();
+    
+    
+    include 'koneksi/count.php';
+    include 'koneksi/connection.php';
+    
+    $conn = get_connection();
+    ?>
+
     <?php include './admin/action_modal/admin_modal-in.php' ?>
 
     <div class="flex flex-col justify-between h-screen">
@@ -121,7 +141,6 @@ $conn = get_connection();
         </main>
         <?php include './components/footer.php' ?>
     </div>
-    <?php include './components/tailwind.php'; ?>
 </body>
 
 </html>
